@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header">
+    <h5>Book List Component</h5>
+    <span>{{id}}</span>
+  </div>
+
+  <div class="card-body">
+    <app-book (bookselection)="GetBookInfo($event)" [bookinfo]="books[0]"></app-book>
+    <app-book (bookselection)="GetBookInfo($event)" [bookinfo]="books[1]"></app-book>
+    <app-book (bookselection)="GetBookInfo($event)" [bookinfo]="books[2]"></app-book>
+  </div>
+</div>
+

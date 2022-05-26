@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header" (mouseover)="GenerateNotification()">
+    <h5>Book Component</h5>
+  </div>
+
+  <div class="card-body">
+    <p>
+      <span>Book Id: {{ bookinfo.bookid }}</span>
+      <br>
+      <span>Book Name: {{ bookinfo.bookname }}</span>
+      <br>
+      <span>Publisher: {{ bookinfo.publisher }}</span>
+      <br>
+      <span>Author: {{ bookinfo.author }}</span>
+      <br>
+      <span>Price: {{ bookinfo.price }}</span>
+    </p>
+    <button class="btn btn-danger" (click)="GenerateNotification()">
+      SELECT
+    </button>
+  </div>
+</div>
+
