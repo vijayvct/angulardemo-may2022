@@ -1,4 +1,4 @@
-import { Component, Input, OnInit,EventEmitter, Output } from '@angular/core';
+import { Component, Input, OnInit,EventEmitter, Output, ElementRef, ViewChild } from '@angular/core';
 
 
 @Component({
@@ -11,9 +11,26 @@ export class BookComponent implements OnInit {
   @Input()
   public bookinfo:any;
 
+  @Input()
+  public bookindex:number =-1;
+
+  @Input()
+  public even:boolean=false;
+
+  @Input()
+  public odd:boolean=false;
+
   @Output()
   public bookselection:EventEmitter<number>
       =new EventEmitter<number>();
+
+  // @ViewChild('btnselect')
+  // private button:ElementRef
+
+  // public ngAfterViewInit(){
+  //   console.log(this.button.nativeElement)
+  //   this.button.nativeElement.focus()
+  // }
 
   constructor() { }
 

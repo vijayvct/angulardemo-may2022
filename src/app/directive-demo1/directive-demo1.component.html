@@ -1,0 +1,35 @@
+<h3>{{ title }}</h3>
+
+<div class="row">
+  Show <input type="checkbox" [(ngModel)]="showMe"/>
+</div>
+
+<h2>ngIf</h2>
+
+<p *ngIf="showMe">
+  ShowMe is checked
+</p>
+
+<p *ngIf="!showMe">
+  ShowMe is unchecked
+</p>
+
+<h2>ngIf Else</h2>
+
+<p *ngIf="showMe; else elseBlock1">
+  ShowMe is Checked
+</p>
+
+<ng-template #elseBlock1>
+  <p>ShowMe is unchecked using elseBlock</p>
+</ng-template>
+
+<h2>using hidden property</h2>
+
+<p [hidden]="showMe">
+  Hello User........
+</p>
+
+<p [hidden]="!showMe">
+  Good Afternoon User...........
+</p>

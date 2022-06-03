@@ -1,0 +1,538 @@
+Angular Training 
+----------------
+
+What is Angular ?
+-----------------
+Angular is UI development framework or platform for developing simple and complex web application
+It is client-side technology 
+It is built using TypeScript 
+It is used to build SPA (Single Page Application)
+It is component-based framework
+It provide a collection of well-integrated libraries that covers a wide varieties of features including routing, form managment, client-server communication and more 
+
+Features of Angular 
+-------------------
+Two-Way Data Binding 
+Powreful Routing Support 
+Modular 
+
+
+Traditional Application
+-----------------------
+E-Commerce - Asp.Net Web Forms 4.5 (3.5)
+
+Index.aspx
+Abour.aspx
+ProductCatalog.aspx
+Contact.aspx
+
+Asp.Net MVC 
+
+	Controller - Logic
+	View - HTML 
+
+
+Version of Angular 
+------------------
+AngularJS - 1.X - (Javascript)
+
+Angular 2 - TypeScript
+Angular 4
+Angular 5
+Angular 6 
+Angular 7
+Angular 8
+Angular 9 
+Angular 10
+Angular 11
+Angular 12
+Angular 13
+
+Core Building Block of Angular 
+------------------------------
+Component 
+	-Class(TypeScript Class)
+		Properties 
+		Methods
+	-Template (HTML Code)
+	-Meta Data (Extra Data for the component)
+Services 
+Directives 
+Pipes
+Modules
+Routing 
+
+Architecture of Angular Application
+-----------------------------------
+
+Angular Application is based on the idea of Components.
+An angular application start witha Top-level component called Root Components
+We then add child component forming a tree of loosely coupled component 
+
+Software Requirment 
+-------------------
+nodejs and npm
+Visual Studio Code 
+
+
+node --version
+
+npm --version 
+
+Install Angular CLI 
+-------------------
+
+npm install -g @angular/cli
+
+ng - to see all the possible options 
+
+ng version - to view the version of the angular cli installed
+
+create a new angular project 
+
+ng new <<name of project>>
+
+ng new DemoAngularApp
+
+cd <path of the folder>
+
+ng serve  
+
+
+Components 
+----------
+
+Components are building-block of angular application 
+
+Each Component has the following artifacts by default:
+
+-The Component Class (TypeScript class)
+
+	<<componentname>>.component.ts 
+	Root Component is know as app.component.ts 
+	
+	Example :- a product list component can have
+	productlist.component.ts
+	
+	a register component can have register.component.ts
+	
+-The Component's Template (View)
+	
+	<<componentname>>.component.html 
+	Root Component's view is app.component.html 
+	
+	Eg:- Product List Component's view productlist.component.html
+		 Register Component's view register.component.html
+		 
+-The Component's Stylesheet 
+	
+	<<componentname>>.component.css
+	Root Components stylesheet is app.component.css
+	
+-The Component's unit testing code 
+
+	<<componentname>>.component.spec.ts
+	Root component's unit testing code would be app.component.spec.ts
+	
+	Component Class - TypeScript Class 
+	
+	Decorator :- It is similar to Data Annotation(Java) or Attributes (.NET)
+	
+	@Component Decorator 
+		Selector - A tag name given to a component which can be used in the html code 
+		
+		Root component - app-root ====> <app-root></app-root>
+		Login component - app-login ====> <app-login></app-login>
+		
+		Template URLs - Path to HTML Code 
+			or
+		Template - HTML Code 
+		
+		Style URLs - path of the css file
+			or 
+		Styles - CSS Code 
+		
+The Module Class 
+----------------
+Every module is TypeScript Class 
+The Class is decorated with @NgModule decorator 
+Root Module is app.module.ts
+
+Bootstrapping 
+-------------
+Bootstrapping is a technique of initializing or loading an Angular Application 
+
+The Angular takes the following steps to load our first view 
+
+1.Index.html Loads
+2.Angular,Third-Party Libraries and Application loads 
+3.Main.ts the applicaiton entry point 
+4.Root Module 
+5.Root Component 
+6.Template 
+
+runtime.js - WebPack Runtime 
+
+WebPack - It is bundler. It scans the application looking for javascripts and merges themt into one or more big files. It has the ability to bundle any kind of files like JavaScript, Css,Images, HTML Etc.....
+
+
+polyfill.js - It has script for supporting variety of latest modern browsers
+styles.js - The files contains the global style rules bundeld as javascript file.
+vendor.js - Contains the scripts from the Angular Core library and any other 3rd Party library
+main.js - code of the application
+
+ng generate component <<componentname>>
+
+ng g c <<componentname>>
+
+ng generate component login - create a login component with all the files in a folder login 
+
+ng g c register --flat --skip-test - create a register component without test logic in the app root folder 
+
+ng g c about --skip-tests --inline-style --inline-template 
+
+
+CT Angular Project 
+------------------
+app ---> ct 
+
+app-root ---> ct-root
+
+HomeComponent -- > ct-home 
+AboutComponent --> ct-about 
+
+angular.json -- contains the information about the angular cli and angular compiler
+angular.json is per project
+
+npm install --save bootstrap
+
+Angular Data Binding 
+--------------------
+Data binindg is a technique, where data stays in a sync between the component and the view
+Whenever the user updates the data in the view, Angular updates the component.
+When the component gets new data, the Angular updates the view 
+
+One-Way Binding
+---------------
+In this approach data flows in one direction
+Either from Component to View or From View to Component 
+To implemene One-Way Data Binding we user interpolation
+
+Interpolation allows us to include an expression as part of string literal.
+The angular evaluates the expression into a string and replaces it in the original string and updates the view 
+
+interpolation --> {{ expression }}
+
+eg:- <p> {{id}} </p>
+
+Two-Way Binding 
+---------------
+Two way data binindg means that changes made to our model in the component are propogated to the view and any chages made in the view are immediately updated in the component 
+Two way data binding is useful in forms 
+The Angular used the ngModel directive to achieve two-way binding 
+
+Employee Name : <input type="text" [(ngModel)]="name">
+
+ngModel is part of FormModule 
+
+
+Event Binding 
+-------------
+Event Binding allows us to bind events such as click, keystroke, hover etc.
+
+Javascript :- <button onclick="functionname()">Click Me </button>
+
+Angular :- <button (click)="functionname()">Click Me</button>
+
+We can pass $event object to the event handler to get additional information about the event
+
+<button (click)="methodname($event)">Click Me </button>
+
+$event contains all the information about the event
+
+If its a DOM element, $event contains the information about the DOM Element 
+If its a Component, $event contains the information about the Component
+
+.target porperty - to the get the information about the target 
+
+Can we use same event handler with multiple elements? - Yes 
+
+Event can be raised by Components 
+	-EventEmitter<T>
+
+Template Reference Variables 
+----------------------------
+This allows us to reference a portion of a template in another portion of the same template
+
+<element #variablename></element>	
+
+<input type="text" #city>
+
+Component Communication 
+-----------------------
+
+	Parent----> Child 
+		Parent Component Pass data to child component
+		@Input decorator 
+		Root-->BookList-->Book
+		
+		a.In the child component,create a data member decorated with @Input decorator
+			@Input ----> @angular/core
+		b.From the parent component, when rendering the child component pass data to the markup of the child component by using propety binding syntax
+		
+		<element [property]="value">
+		
+		c.The child component can use the member marked with @Input decorator to access the data passed by Parent Component
+		
+	Child----> Parent 
+		Child component pass data back to parent component
+		@Output decorator 
+		EventEmitter<T> Class (notification)
+		
+		Book-->BookList-->Root
+		
+		a.In the child component, create an instance of the EventEmitter<T> class specifying the type of data to be passed to the parent.
+			EventEmitter<T> -- @angular/core
+			
+		b.Decorate the datamemeber with the @Output decorator
+			@Output allows the parent to receive notificaton and respond to it 
+			
+		c.Emit the custom event from the child component using the emit method of the EventEmitter
+		
+		d.In the parent comp's template, use event binindg syntax so that the parent can attach an event handler to the custom notification fired by the child component
+		
+Component Interaction 
+		@ViewChild 
+		@ViewChildern 
+		
+		Use to access DOM element of a component from its TS code 
+		@ViewChild() returns first matching element
+		@ViewChildern returns an array of DOM elements 
+		It can be used to access propeties/method of child component as well 
+		
+		1.Create a data member in the class 
+			private button :ElementRef
+			
+			ElementRef- wrapper around a DOM element
+			
+		2.Decorate the data member with the @ViewChild decorator
+		
+		3.Access the DOM element in the ngAfterViewInit() lifecycle hook
+
+Directives 
+----------
+Angular directives helps us to manipulate the DOM.
+You can change the appereance,behaviour or layout of the dom element using the directives
+They help you extend HTML 
+
+Component Directive
+	They are directives with a template (view) for a component
+	
+Structural Directive 
+	These directies can change tha DOM layout by adding and removing DOM element 
+	
+	*ngIf
+		<element *ngIf="codition"> .... </element>
+		
+	ngSwitch
+		*ngSwitchCase 
+		*ngSwitchDefault 
+		
+		<div [ngSwitch]="num">
+			<div *ngSwitchCase="1">One</div>
+			<div *ngSwitchCase="2">Two</div>
+			.
+			.
+			.
+			<div *ngSwitchDefault>Default Message</div>
+		</div>
+		
+	ngFor 
+		<element *ngFor="let variable of collection/array">
+			{{variable}}
+		</element>
+		
+		"variable" is knows as "template input variable"
+		scope is only within the <element>
+		
+		*ngFor Variables
+			index: contains the zero based index of item being iterated
+			
+				*ngFor ="let b of books; let i=index"
+				
+			odd: returns true if the item is an odd item 
+			
+			even: returns true if the item is an even item 
+			
+				*ngFor="let b of books;let i=index;let o=odd;let e=even"
+				
+			trackBy: function
+				Tells Angular how each item in the collection must be tracked 
+				Without trackBy, Angular re-renders the entire DOM tree, even if the data has not changed.
+				
+				a.Create a function which returns a unique vaule from the model, which Angular will use to track each item 
+					Ex:- eid,pid etc
+				
+				b.Use the trackBy property with the *ngFor and specify the name of the tracking function created
+				
+				if the data changes,the existing DOM elements will not be re-render and only the new DOM elements would be add to the DOM tree
+		
+Attribute Directive
+	
+	ngModel 
+	ngClass
+	ngStyle 
+	
+	Creating Custom Directives 
+	
+		a.Creating a custom attribute directive 
+		b.Creating a custom structural directive 
+		
+		1.Create TS class and decorate it with @Directive() decorator 
+		2.Declare the directive in the "declaration" section of the AppModule
+		3.Use the directive in the component's template 
+		
+		Anguar CLI -->ng generate directive <<directivename>>
+		
+		First decide , what the custome directive is supposed to do?
+		
+		Example:
+			AlertDirective (directive class)
+				<element [alert]></element>
+				
+			What should it do?
+			when applied to an HTML element, it must display an alert message
+			
+				<p [alert]>Hello</p> -- Display an alert message
+				<span [alert]>Welcome</p> 
+				
+			Inside the custom directive, we can respond to the events of the HOST ELEMENT
+				a.Inside the directive , create a handler function 
+				b.Decorate it with @HostListener() decorator and specify the DOM event
+				
+		A custom directive can be applied to a DOM element as well as to a custom component
+		
+		Accesing the HOST element from within the directive 
+			To change the behaviour of the HOST element 
+			Inject the ElementRef service into the directive class
+		
+		<p appAlert>Hello</p> 
+		
+		Just like components, directives can also have input properties (marked with @Input())
+		
+		<p appAlert inputmessage="Welcome"></p>
+		
+		<p appAlert inputmessage="Hello"></p>
+		
+		"inputmessage" is an input property
+		
+		<p appAlert [inputmessage]="'This is a Para Element'"> </p>
+		
+			if we need to pass a lteral to input property using a property binding syntax, use single quotes within double quotes
+			
+			Can we use the directive as follows ?
+			
+			<span appAlert="Hi">....</span>
+				OR
+			<span [appAlert]="'Hi'">.....</span>
+			
+			we can create getter and setter in the directive class to make the above code work
+			Decorate the setter with the @Input() Decorator
+			
+	Creating a Custom structural directive
+	--------------------------------------
+	Objective : Create a custom structural directive which repeats/clone an element for the specified number of time(similar to ngFor)
+	
+	Usage :- 
+	
+		<element *appRepeat="10">...</element>
+			Clone 10 times
+		<element *appRepeat="5">....</element>
+			Clone 5 times
+			
+		<p *appRepeat="5">Hello</p>
+		
+		<p>Hello</p>
+		<p>Hello</p>
+		<p>Hello</p>
+		<p>Hello</p>
+		<p>Hello</p>
+			
+	1.Create the directive class 
+		ng g d repeat --skip-tests
+		
+	2.Two thing needed for creating a structutral directive
+		a.ViewContainerRef
+		b.TemplateRef
+		
+	3.Inject the above service in the constructor of the directive as private variables
+	
+	ViewContainerRef corresponds to a location the DOM where the embedded View is created 
+	TemplateRef represents an embedded template 
+
+	4.Create a setter and getter with the name appRepeat and decorate the setter with @Input decorator
+	
+	5.The logic to clone the element will be inside the setter 
+	
+	6.Logic to clone element 
+		Use the createEmbeddedView() of the ViewContainerRef passing the TemplateRef
+		for(let i=0;i<this.repeatcount;i++)
+		{
+		this.viewcontainer.createEmbeddedView(this.templateref);
+		}
+		
+		createEmbeddedView() appends the templateref inside the viewcontainerref
+		
+		To remove the previous embedded view use the below code 
+		
+		this.viewcontainer.clear();
+		
+		
+Pipes 
+-----
+Formerly knows as "filters" in Angular JS (1.x)
+A pipe allows you to transform some input and returns the transformed value back
+
+input ----> PIPE(Transform) -----> TransformedData
+
+Many Built-In Pipes are available 
+
+Syntax :- Pipes are always used in template 
+
+	{{ expression/input to the pipe | pipename }}
+		{{ dob | date }}
+		
+	Chain Pipes 
+	
+		{{ expression | pipe1 | pipe2 | pipe3 }}
+		
+	Pipes with Arguments , Arguments must be sperated by a colon
+	
+		{{ expression | pipename:arg1:arg2...... }}
+		
+	
+	Built in pipes 
+		1.decimal
+		2.currency
+		3.date
+		4.json
+		5.uppercase
+		6.lowercase
+		7.titlecase
+		8.async(used with observables)
+		....
+		
+Custom Pipe 
+-----------
+	{{ 2 | square }}
+	
+Create a class decorated with @Pipe() decorator 
+Optionally implement the PipeTransform interface 
+Write the transformation logic inside the transform() method 
+Angular calls the the transform() when the pipe is used
+
+
+ng generate pipe <<pipename>> --skip-tests
+
+First arg to the transform() method is the value on the left side of the pipe.
+Additional args can be passed as parameters to the transform() method -- optional

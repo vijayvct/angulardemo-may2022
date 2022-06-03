@@ -7,10 +7,76 @@
 
     <div class="card-body">
 
-      <app-book-list></app-book-list>
+      <p>
+          <input type="text" [(ngModel)]="val"/>
+      </p>
+      <p>
+        {{ val | square }}
+      </p>
+      <p>
+        {{ 2 | square}}
+      </p>
+
+      <p>
+        {{ 1.1 | square}}
+      </p>
+      <!-- <p>
+        Today is {{ today | date}}
+      </p>
+
+      <p>
+        Today is {{ today | date :'MM/dd/YY'}}
+      </p>
+
+      <p>
+        Amount is {{ 10 | currency:"INR" :"Rs"}}
+      </p>
+
+      <p>
+        {{ "hello" | uppercase }}
+      </p>
+
+      <p>
+        {{ "hello" | lowercase }}
+      </p> -->
+
+      <!-- <p appAlert [inputmessage]="'This is a Para Element'">
+        Hello
+      </p>
+
+      <span appAlert [inputmessage]="'This is a Span Element'">
+        Welcome
+      </span> -->
+
+      <!-- <span [appAlert]="'Hello'">
+        This is a Span Element
+      </span> -->
+
+      <!-- <p>
+        Enter number of times to clone:
+        <input type="text" [(ngModel)]="repeatcount"/>
+      </p>
+
+      <p *appRepeat="repeatcount">
+        HELLO
+      </p> -->
+
+      <!-- <app-directive-demo3></app-directive-demo3> -->
+      <!-- <app-directive-demo2></app-directive-demo2> -->
+
+      <!-- <app-book-list></app-book-list> -->
+
       <!-- <h3>App Other Component will be placed here</h3> -->
       <!-- <app-home></app-home>
       <app-about></app-about> -->
+
+      <!-- <p *ngIf="10>2">
+        This is some content
+      </p>
+
+      <p *ngIf="true">
+        Hello user ...
+      </p> -->
 
     </div>
   </div>

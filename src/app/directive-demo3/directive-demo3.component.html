@@ -1,0 +1,23 @@
+<h3>ngClass and ng Style Demo</h3>
+
+<h6>List of People</h6>
+
+<ul *ngFor="let person of people">
+  <li [ngStyle]="{'color':getColor(person.country)}">
+    {{person.name}}  ({{person.country}})
+  </li>
+</ul>
+
+<hr>
+
+<h6>List of People</h6>
+
+<ul *ngFor="let person of people">
+  <li [ngClass]="{
+    'text-success':person.country==='UK' ,
+    'text-primary':person.country==='USA',
+    'text-danger':person.country==='INDIA'
+  }">
+    {{person.name}}  ({{person.country}})
+  </li>
+</ul>

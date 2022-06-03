@@ -4,6 +4,12 @@
   </div>
 
   <div class="card-body">
+    <h6>
+      Book Index : {{ bookindex + 1 }}
+    </h6>
+    <span>Odd : {{ odd }}</span>
+    <br>
+    <span>Even : {{ even }}</span>
     <p>
       <span>Book Id: {{ bookinfo.bookid }}</span>
       <br>
@@ -15,7 +21,7 @@
       <br>
       <span>Price: {{ bookinfo.price }}</span>
     </p>
-    <button class="btn btn-danger" (click)="GenerateNotification()">
+    <button #btnselect id="btn1" class="btn btn-danger" (click)="GenerateNotification()">
       SELECT
     </button>
   </div>

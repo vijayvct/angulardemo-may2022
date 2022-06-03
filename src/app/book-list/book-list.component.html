@@ -4,10 +4,25 @@
     <span>{{id}}</span>
   </div>
 
-  <div class="card-body">
+  <!-- <div class="card-body">
     <app-book (bookselection)="GetBookInfo($event)" [bookinfo]="books[0]"></app-book>
     <app-book (bookselection)="GetBookInfo($event)" [bookinfo]="books[1]"></app-book>
     <app-book (bookselection)="GetBookInfo($event)" [bookinfo]="books[2]"></app-book>
+  </div> -->
+
+  <div class="card-body">
+
+    <button class="btn btn-primary" (click)="RefreshData()">
+      Refresh
+    </button>
+
+    <app-book appAlert
+    (bookselection)="GetBookInfo($event)"
+    *ngFor="let b of books; let i=index; let o=odd; let e=even;trackBy:TrackBook"
+    [bookinfo]="b" [bookindex]="i" [even]="e" [odd]="o">
+
+    </app-book>
   </div>
+
 </div>
 

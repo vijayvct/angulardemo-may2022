@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Book Manager Angular Application';
+
+  public repeatcount:number=0;
+
+  public today :Date=new Date();
+
+  public val:number=0;
 }

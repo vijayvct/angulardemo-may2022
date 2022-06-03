@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-header">
+    ngSwitch Example
+  </div>
+
+  <div class="card-body">
+
+    Enter a Number <input type="text" [(ngModel)]="num"/>
+    <br>
+
+    <div [ngSwitch]="num">
+      <div *ngSwitchCase="1">One</div>
+      <div *ngSwitchCase="2">Two</div>
+      <div *ngSwitchCase="3">Three</div>
+      <div *ngSwitchDefault>This is Default</div>
+    </div>
+
+    <hr>
+
+    <h3>Student Information</h3>
+
+
+    <table class="table" *ngIf="students.length">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Type</th>
+      </tr>
+      <tr *ngFor="let student of students;">
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.type }}</td>
+      </tr>
+    </table>
+
+  </div>
+
+
+</div>
